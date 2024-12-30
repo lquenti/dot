@@ -73,6 +73,12 @@ if [[ "$(hostname)" == "omniblech" ]]; then
     days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
     echo "Installed at 21.10.2024 ($days_since_install days)"
 fi
+if [[ "$(hostname)" == "db" ]]; then
+    install_date="2024-12-30"
+    current_date=$(date +%Y-%m-%d)
+    days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
+    echo "Installed at 21.10.2024 ($days_since_install days)"
+fi
 
 
 # saxon stuff
