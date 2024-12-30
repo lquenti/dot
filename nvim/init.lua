@@ -23,14 +23,6 @@ require('lazy').setup({
   {'akinsho/bufferline.nvim', version = "*"},
   {'kyazdani42/nvim-tree.lua'},
   {'ntpeters/vim-better-whitespace'},
-  -- {"yutkat/confirm-quit.nvim", event = "CmdlineEnter", opts = {}}, -- Only useful if used w/in neovide
-
-  -- Themes
-  {"polirritmico/monokai-nightasty.nvim"},
-  {"navarasu/onedark.nvim"},
-  {"projekt0n/github-nvim-theme"},
-  {"ewilazarus/preto"},
-
 
   -- lsp stuff
   {'neovim/nvim-lspconfig'},
@@ -103,23 +95,6 @@ vim.api.nvim_create_user_command(
 
 -- Koehler
 vim.cmd.colorscheme("koehler")
-
--- Monokai
--- vim.opt.background = "dark" -- default to dark or light style
--- vim.cmd.colorscheme("monokai-nightasty")
-
--- Onedark
--- require('onedark').setup {
---     style = 'darker'
--- }
--- require('onedark').load()
-
--- github
--- vim.cmd('colorscheme github_dark_default')
-
--- preto
--- vim.cmd('colorscheme preto')
-
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
