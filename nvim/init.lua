@@ -23,6 +23,11 @@ require('lazy').setup({
   {'akinsho/bufferline.nvim', version = "*"},
   {'kyazdani42/nvim-tree.lua'},
   {'ntpeters/vim-better-whitespace'},
+  {
+    "3rd/image.nvim",
+    build = false, -- so that it doesn't build the rock https://github.com/3rd/image.nvim/issues/91#issuecomment-2453430239
+    opts = {}
+},
 
   -- lsp stuff
   {'neovim/nvim-lspconfig'},
@@ -125,6 +130,33 @@ vim.cmd([[
   augroup END
 ]])
 
+-- image.nvim
+require("image").setup({
+  backend = "kitty",
+  processor = "magick_cli",
+  integrations = {
+    markdown = {
+      enabled = true,
+      clear_in_insert_mode = false,
+      download_remote_images = true,
+      only_render_image_at_cursor = false,
+      floating_windows = false,
+      filetypes = { "markdown", "vimwiki" },
+    },
+    neorg = {
+      enabled = false,
+    },
+    typst = {
+      enabled = false,
+    },
+    html = {
+      enabled = false,
+    },
+    css = {
+      enabled = false,
+    },
+  },
+})
 
 -- bufferline.nvim
 require("bufferline").setup{
@@ -178,7 +210,7 @@ vim.keymap.set("n", "<leader>f", ":NvimTreeToggle<cr>", {noremap = true })
 -- so these can be global keybindings
 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>') 
+vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
