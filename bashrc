@@ -79,6 +79,9 @@ if [[ "$(hostname)" == "db" ]]; then
     days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
     echo "Installed at 21.10.2024 ($days_since_install days)"
 fi
+if [[ "$(hostname)" == "treblech" ]]; then
+    PS1="(TRE) $PS1"
+fi
 
 
 # saxon stuff
