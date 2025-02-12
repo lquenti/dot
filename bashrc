@@ -71,7 +71,11 @@ if [[ "$(hostname)" == "omniblech" ]]; then
     install_date="2024-11-09"
     current_date=$(date +%Y-%m-%d)
     days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
+
+    echo "############################################"
     echo "Installed at 21.10.2024 ($days_since_install days)"
+    python3 /home/lquenti/code/lquentin/pomodori.py
+    echo "############################################"
 fi
 if [[ "$(hostname)" == "db" ]]; then
     install_date="2024-12-30"
@@ -98,3 +102,7 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f "/home/$(whoami)/.ghcup/env" ] && . "/home/$(whoami)/.ghcup/env" # ghcup-env
 . "$HOME/.cargo/env"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
