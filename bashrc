@@ -101,3 +101,4 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f "/home/$(whoami)/.ghcup/env" ] && . "/home/$(whoami)/.ghcup/env" # ghcup-env
 . "$HOME/.cargo/env"
+export PATH=$PATH:/usr/local/go/bin
