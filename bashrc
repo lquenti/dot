@@ -74,7 +74,7 @@ if [[ "$(hostname)" == "omniblech" ]]; then
 
     echo "############################################"
     echo "Installed at 21.10.2024 ($days_since_install days)"
-    python3 /home/lquenti/code/lquentin/pomodori.py
+    python3 /home/lquenti/oC/other/lquentin/pomodori.py
     echo "############################################"
 fi
 if [[ "$(hostname)" == "db" ]]; then
@@ -92,6 +92,12 @@ alias saxonXQ='java -cp $SAXON12CLASSPATH net.sf.saxon.Query'
 alias saxonXSL='java -cp $SAXON12CLASSPATH net.sf.saxon.Transform'
 alias saxonValid='java -cp $SAXON12CLASSPATH net.sf.saxon.Query -qs:. -dtd:on '
 
+# Deductive Databases
+alias xsb='rlwrap ~/tmp/XSB/bin/xsb'
+alias smodels='~/tmp/smodels-2.34/smodels'
+alias lparse='~/code/lparse/src/lparse'
+
+
 export PATH=/home/$USER/.local/bin:/home/$USER/pkg:/home/$USER/.cargo/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
@@ -106,3 +112,4 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
+export PATH=$PATH:/usr/local/go/bin
