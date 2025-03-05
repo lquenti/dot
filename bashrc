@@ -83,6 +83,9 @@ if [[ "$(hostname)" == "db" ]]; then
     days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
     echo "Installed at 21.10.2024 ($days_since_install days)"
 fi
+if [[ "$(hostname)" == "treblech" ]]; then
+    PS1="(TRE) $PS1"
+fi
 
 
 # saxon stuff
@@ -108,7 +111,6 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f "/home/$(whoami)/.ghcup/env" ] && . "/home/$(whoami)/.ghcup/env" # ghcup-env
 . "$HOME/.cargo/env"
-
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
