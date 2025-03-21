@@ -45,6 +45,14 @@ function setup_venv() {
 }
 alias venv=setup_venv
 
+if [[ "$(hostname)" == "boringblech" ]]; then
+    install_date="2025-03-19"
+    current_date=$(date +%Y-%m-%d)
+    days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
+    echo "############################################"
+    echo "Installed at 19.03.2025 ($days_since_install days)"
+    echo "############################################"
+fi
 if [[ "$(hostname)" == "treblech" ]]; then
     PS1="(TRE) $PS1"
 fi
