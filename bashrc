@@ -26,6 +26,7 @@ alias bashrc='nvim ~/.bashrc'
 alias de='setxkbmap de'
 alias us='setxkbmap us'
 alias xclip='xclip -selection c'
+alias kb='pushd ~/thoughts; nvim README.md; popd'
 
 alias sshdaemon='ssh cloud@141.5.108.64'
 
