@@ -7,7 +7,7 @@
 
 alias jena='java -jar /home/lquenti/oC/SW/semweb-2021-12-16.jar'
 
-alias leetcode='g++ -Wall -Wextra -g -fsanitize=address'
+alias lcgcc='gcc -Wall -Wextra -g -fsanitize=address'
 
 alias vim="nvim"
 
