@@ -4,9 +4,6 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
-alias jena='java -jar /home/lquenti/oC/SW/semweb-2021-12-16.jar'
-
 alias lcgcc='gcc -Wall -Wextra -g -fsanitize=address'
 
 alias vim="nvim"
