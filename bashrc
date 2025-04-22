@@ -26,6 +26,7 @@ alias de='setxkbmap de'
 alias us='setxkbmap us'
 alias xclip='xclip -selection c'
 alias kb='pushd ~/thoughts; nvim README.md; popd'
+alias work='pushd ~/work; nvim README.md; popd'
 
 alias sshdaemon='ssh cloud@141.5.108.64'
 
@@ -49,12 +50,12 @@ function setup_venv() {
 }
 alias venv=setup_venv
 
-if [[ "$(hostname)" == "boringblech" ]]; then
-    install_date="2025-03-19"
+if [[ "$(hostname)" == "workblech" ]]; then
+    install_date="2025-04-22"
     current_date=$(date +%Y-%m-%d)
     days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
     echo "############################################"
-    echo "Installed at 19.03.2025 ($days_since_install days)"
+    echo "Installed at 22.04.2025 ($days_since_install days)"
     echo "############################################"
 fi
 if [[ "$(hostname)" == "treblech" ]]; then
