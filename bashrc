@@ -29,6 +29,8 @@ alias kb='pushd ~/thoughts; nvim README.md; popd'
 
 alias sshdaemon='ssh cloud@141.5.108.64'
 
+alias yt-mp4='yt-dlp --restrict-filenames -f "bestvideo[ext=mp4][height<=1080]"'
+
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
 function setup_venv() {
@@ -68,7 +70,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 . "$HOME/.cargo/env"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - bash)"
 export PATH=$PATH:/usr/local/go/bin
