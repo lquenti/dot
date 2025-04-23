@@ -80,3 +80,6 @@ export NVM_DIR="$HOME/.nvm"
 
 . "$HOME/.cargo/env"
 export PATH=$PATH:/usr/local/go/bin
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
