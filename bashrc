@@ -50,6 +50,14 @@ function setup_venv() {
 }
 alias venv=setup_venv
 
+if [[ "$(hostname)" == "zenblech" ]]; then
+    install_date="2025-04-23"
+    current_date=$(date +%Y-%m-%d)
+    days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
+    echo "############################################"
+    echo "Installed at 23.04.2025 ($days_since_install days)"
+    echo "############################################"
+fi
 if [[ "$(hostname)" == "workblech" ]]; then
     install_date="2025-04-22"
     current_date=$(date +%Y-%m-%d)
