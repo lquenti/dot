@@ -221,3 +221,5 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+default_border pixel 3
