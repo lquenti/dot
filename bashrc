@@ -22,6 +22,7 @@ alias gpu='git pull'
 alias glo='git log --oneline'
 alias :r="source ~/.bashrc"
 alias bashrc='nvim ~/.bashrc'
+alias nvimrc='nvim ~/.config/nvim/init.lua'
 alias de='setxkbmap de'
 alias us='setxkbmap us'
 alias xclip='xclip -selection c'
