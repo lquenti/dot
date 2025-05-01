@@ -56,7 +56,7 @@ function setup_lc() {
 
   pushd ~/code/LGKATA/LC
 
-  firefox --new-window "https://leetcode.com"
+  firefox --new-window "https://leetcode.com" &
   cp template.c "${DATE}.c"
 
   if [ -n "$TMUX" ]; then
@@ -81,7 +81,7 @@ alias lc=setup_lc
 
 function setup_bh() {
   # Currently relevant: HTTP server
-  local SESSION_NAME="lc_tmux"
+  local SESSION_NAME="bh_tmux"
 
   pushd ~/code/LGTOOLS/LGHTTP_SEQ
 
