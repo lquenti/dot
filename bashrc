@@ -57,7 +57,9 @@ function setup_lc() {
   pushd ~/code/LGKATA/LC
 
   firefox --new-window "https://leetcode.com" &
-  cp template.c "${DATE}.c"
+  if [ ! -e "${DATE}.c" ]; then
+    cp template.c "${DATE}.c"
+  fi
 
   if [ -n "$TMUX" ]; then
     echo "Error You are already inside a tmux session."
