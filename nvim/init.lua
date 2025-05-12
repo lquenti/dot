@@ -205,7 +205,7 @@ end
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {"clangd", "rust_analyzer", "gopls"},
+  ensure_installed = {"clangd", "rust_analyzer", "gopls", "pylsp"},
   handlers = {
     default_setup,
   },
