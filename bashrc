@@ -32,6 +32,8 @@ alias sshdaemon='ssh cloud@141.5.108.64'
 
 alias yt-mp4='yt-dlp --restrict-filenames -f "bestvideo[ext=mp4][height<=1080]"'
 
+alias calc='python3 -i ~/code/dot/calc.py'
+
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -hrt --color; }; }
 
 function setup_venv() {
@@ -54,9 +56,9 @@ if [[ "$(hostname)" == "workblech" ]]; then
     install_date="2025-04-22"
     current_date=$(date +%Y-%m-%d)
     days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
-    echo "############################################"
-    echo "Installed at 22.04.2025 ($days_since_install days)"
-    echo "############################################"
+    # echo "############################################"
+    # echo "Installed at 22.04.2025 ($days_since_install days)"
+    # echo "############################################"
 fi
 if [[ "$(hostname)" == "treblech" ]]; then
     PS1="(TRE) $PS1"
