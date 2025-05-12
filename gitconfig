@@ -3,3 +3,7 @@
 	email = lars@lquenti.de
 [core]
 	editor = nvim
+
+# ~/.gitconfig
+[alias]
+  cloc = !cloc $(git ls-files)
