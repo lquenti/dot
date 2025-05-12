@@ -1,0 +1,5 @@
+[user]
+	name = Lars Quentin
+	email = lars@lquenti.de
+[core]
+	editor = nvim

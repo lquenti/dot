@@ -4,8 +4,6 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-alias lcgcc='gcc -Wall -Wextra -g -fsanitize=address'
-
 alias vim="nvim"
 
 alias ls='ls --color=auto'
@@ -22,6 +20,8 @@ alias gpu='git pull'
 alias glo='git log --oneline'
 alias :r="source ~/.bashrc"
 alias bashrc='nvim ~/.bashrc'
+alias nvimrc='nvim ~/.config/nvim/init.lua'
+alias swayrc='nvim ~/.config/sway/config'
 alias de='setxkbmap de'
 alias us='setxkbmap us'
 alias xclip='xclip -selection c'
@@ -52,14 +52,73 @@ function setup_venv() {
 }
 alias venv=setup_venv
 
-if [[ "$(hostname)" == "workblech" ]]; then
-    install_date="2025-04-22"
-    current_date=$(date +%Y-%m-%d)
-    days_since_install=$(($(($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s"))) / 86400))
-    # echo "############################################"
-    # echo "Installed at 22.04.2025 ($days_since_install days)"
-    # echo "############################################"
+function setup_lc() {
+  local SESSION_NAME="lc_tmux"
+  local DATE="$(date +%Y-%m-%d)"
+
+  pushd ~/code/LGKATA/LC
+
+  firefox --new-window "https://leetcode.com" &
+  if [ ! -e "${DATE}.c" ]; then
+    cp template.c "${DATE}.c"
+  fi
+
+  if [ -n "$TMUX" ]; then
+    echo "Error You are already inside a tmux session."
+    return 1
+  fi
+
+  if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    tmux attach-session -t "$SESSION_NAME"
+  else
+    tmux new-session -d -s "$SESSION_NAME"
+    tmux send-keys -t "$SESSION_NAME":0.0 "nvim ${DATE}.c" C-m
+
+    tmux new-window -t "$SESSION_NAME":1 -n 'build' -c ~/code/LGKATA/LC
+    tmux send-keys -t "$SESSION_NAME":1 "gcc -Wall -Wextra -g -fsanitize=address "
+
+    tmux select-window -t "$SESSION_NAME":0
+    tmux attach -t "$SESSION_NAME"
+  fi
+}
+alias lc=setup_lc
+
+function setup_bh() {
+  # Currently relevant: HTTP server
+  local SESSION_NAME="bh_tmux"
+
+  pushd ~/code/LGTOOLS/LGHTTP_SEQ
+
+  if [ -n "$TMUX" ]; then
+    echo "Error You are already inside a tmux session."
+    return 1
+  fi
+
+  if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    tmux attach-session -t "$SESSION_NAME"
+  else
+    tmux new-session -d -s "$SESSION_NAME"
+    tmux send-keys -t "$SESSION_NAME":0.0 "nvim LGHTTP_SEQ.h" C-m
+
+    tmux select-window -t "$SESSION_NAME":0
+    tmux attach -t "$SESSION_NAME"
+  fi
+}
+alias bh=setup_bh
+
+declare -A install_dates
+install_dates["zenblech"]="2025-04-23"
+install_dates["workblech"]="2025-04-22"
+if [[ -n "${install_dates[$(hostname)]}" ]]; then
+  install_date="${install_dates[$(hostname)]}"
+  current_date=$(date +%Y-%m-%d)
+  days_since_install=$(( ($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s")) / 86400 ))
+  formatted_date=$(date -d "$install_date" "+%d.%m.%Y")
+  echo "############################################"
+  echo "Installed at $formatted_date ($days_since_install days)"
+  echo "############################################"
 fi
+
 if [[ "$(hostname)" == "treblech" ]]; then
     PS1="(TRE) $PS1"
 fi
@@ -74,3 +133,6 @@ export NVM_DIR="$HOME/.nvm"
 
 . "$HOME/.cargo/env"
 export PATH=$PATH:/usr/local/go/bin
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
