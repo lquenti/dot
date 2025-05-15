@@ -109,7 +109,8 @@ alias bh=setup_bh
 declare -A install_dates
 install_dates["zenblech"]="2025-04-23"
 install_dates["workblech"]="2025-04-22"
-if [[ -n "${install_dates[$(hostname)]}" ]]; then
+current_weekday=$(date +%u) # do not run on thu
+if [[ "$current_weekday" -ne 4 ]] && [[ -n "${install_dates[$(hostname)]}" ]]; then
   install_date="${install_dates[$(hostname)]}"
   current_date=$(date +%Y-%m-%d)
   days_since_install=$(( ($(date -d "$current_date" "+%s") - $(date -d "$install_date" "+%s")) / 86400 ))
