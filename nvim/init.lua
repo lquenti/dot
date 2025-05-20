@@ -80,8 +80,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- Color Column for 80 chars
-vim.o.colorcolumn = "80"
+-- Color Column for 121 chars
+vim.o.colorcolumn = "121"
 
 vim.api.nvim_create_user_command(
   'Bd',
