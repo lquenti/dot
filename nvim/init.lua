@@ -231,4 +231,16 @@ cmp.setup({
   }),
 })
 
+
+-- Note: I normally use CTRL-v for visual block mode, so ctrl-q is safe for me to rebind
+local scratchpad = require("lglq.scratchpad")
+vim.keymap.set("n", "<C-q>", scratchpad.toggle, { noremap = true, silent = true })
+vim.keymap.set("i", "<C-q>", function()
+  -- Exit insert mode
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+  scratchpad.toggle()
+end, { noremap = true, silent = true })
+
+
+
 -- vim: ts=2 sts=2 sw=2 et
