@@ -210,7 +210,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
 
     status_command while ~/.config/sway/status_bar.sh; do sleep 5; done
     #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
