@@ -133,7 +133,7 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 export PATH=$PATH:/usr/local/go/bin
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
