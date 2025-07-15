@@ -28,6 +28,9 @@ alias xclip='xclip -selection c'
 alias kb='pushd ~/thoughts; nvim README.md; popd'
 alias work='pushd ~/work; nvim README.md; popd'
 
+# I want to get more suckless
+alias rg='grep -iRn'
+
 alias sshdaemon='ssh cloud@141.5.108.64'
 
 alias yt-mp4='yt-dlp --restrict-filenames -f "bestvideo[ext=mp4][height<=1080]"'
