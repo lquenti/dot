@@ -60,16 +60,16 @@ function setup_lc() {
   local SESSION_NAME="lc_tmux"
   local DATE="$(date +%Y-%m-%d)"
 
+  if [ -n "$TMUX" ]; then
+    echo "Error You are already inside a tmux session."
+    return 1
+  fi
+
   pushd ~/code/LGKATA/LC
 
   firefox --new-window "https://leetcode.com" &
   if [ ! -e "${DATE}.c" ]; then
     cp template.c "${DATE}.c"
-  fi
-
-  if [ -n "$TMUX" ]; then
-    echo "Error You are already inside a tmux session."
-    return 1
   fi
 
   if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
