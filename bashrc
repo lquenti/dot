@@ -29,7 +29,7 @@ alias kb='pushd ~/thoughts; nvim README.md; popd'
 alias work='pushd ~/work; nvim README.md; popd'
 
 # I want to get more suckless
-alias rg='grep -iRn'
+alias rg='grep -iRnP'
 
 alias sshdaemon='ssh cloud@141.5.108.64'
 
