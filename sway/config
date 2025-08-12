@@ -230,3 +230,4 @@ output LVDS-1 scale 1
 default_border pixel 3
 
 exec gentoo-pipewire-launcher restart &
+exec gammastep -l 51.5:9.9 &
