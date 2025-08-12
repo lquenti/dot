@@ -30,7 +30,9 @@ int get_timew(char *buf, size_t n) {
   // Find last number, which is the total
   for (size_t i = strlen(buf); i > 0; --i) {
     if (sscanf(&buf[i-1], "%d:%d:%d", &h, &m, &s) == 3) {
-      sprintf(buf, "Total Work: %02d:%02d:%02d (%s)", h, m, s, digit[0] == '1' ? "running" : "stopped");
+      int mins_till_8h = 8*60 - (h*60+m);
+      sprintf(buf, "Total Work: %02d:%02d (%s), %02d:%02d remaining", h, m, digit[0] == '1' ? "running" : "stopped",
+          mins_till_8h/60, mins_till_8h%60);
       return 1;
     }
   }
