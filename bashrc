@@ -27,6 +27,9 @@ alias us='setxkbmap us'
 alias xclip='xclip -selection c'
 alias kb='pushd ~/thoughts; nvim README.md; popd'
 alias work='pushd ~/work; nvim README.md; popd'
+alias eupd='sudo emaint --auto sync'
+alias efet='sudo emerge -avuDNf @world'
+alias eupg='sudo emerge -avuDN @world'
 
 # I want to get more suckless
 alias rg='grep -iRnP'
