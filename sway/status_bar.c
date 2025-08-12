@@ -5,6 +5,8 @@
 
 #define BUF_MAX 256
 
+#define MAX(a,b) (((a)>(b))?(a):(b))
+
 // sway doesn't get my $PATH
 #define PATH_TO_TIMEW "~/.local/bin/timew"
 
@@ -30,7 +32,7 @@ int get_timew(char *buf, size_t n) {
   // Find last number, which is the total
   for (size_t i = strlen(buf); i > 0; --i) {
     if (sscanf(&buf[i-1], "%d:%d:%d", &h, &m, &s) == 3) {
-      int mins_till_8h = 8*60 - (h*60+m);
+      int mins_till_8h = MAX(8*60 - (h*60+m), 0);
       sprintf(buf, "Total Work: %02d:%02d (%s), %02d:%02d remaining", h, m, digit[0] == '1' ? "running" : "stopped",
           mins_till_8h/60, mins_till_8h%60);
       return 1;
