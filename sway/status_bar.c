@@ -32,13 +32,28 @@ int get_timew(char *buf, size_t n) {
   // Find last number, which is the total
   for (size_t i = strlen(buf); i > 0; --i) {
     if (sscanf(&buf[i-1], "%d:%d:%d", &h, &m, &s) == 3) {
-      int mins_till_8h = MAX(8*60 - (h*60+m), 0);
-      sprintf(buf, "Total Work: %02d:%02d (%s), %02d:%02d remaining", h, m, digit[0] == '1' ? "running" : "stopped",
-          mins_till_8h/60, mins_till_8h%60);
+      int total_mins = MAX(8*60 - (h*60+m), 0);
+
+      time_t now; time(&now);
+      struct tm *timeinfo = localtime(&now);
+      int hours_till_8h = total_mins/60;
+      int mins_till_8h = total_mins%60;
+      int end_hour = timeinfo->tm_hour + hours_till_8h;
+      int end_minute = timeinfo->tm_min + mins_till_8h;
+      if (end_minute >= 60) {
+        end_hour += 1;
+        end_minute -= 60;
+      }
+
+      int offset = 0;
+      offset += sprintf(buf + offset, "Total Work: %02d:%02d", h, m);
+      if (total_mins) {
+        offset += sprintf(buf + offset, " (%s) End: %02d:%02d", digit[0] == '1' ? "running" : "stopped",
+            end_hour, end_minute);
+      }
       return 1;
     }
   }
-  printf("D\n");
   return 0;
 }
 
