@@ -44,6 +44,7 @@ int get_timew(char *buf, size_t n) {
         end_hour += 1;
         end_minute -= 60;
       }
+      end_hour %= 24;
 
       int offset = 0;
       offset += sprintf(buf + offset, "Total Work: %02d:%02d", h, m);
