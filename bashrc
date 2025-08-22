@@ -30,6 +30,7 @@ alias work='pushd ~/work; nvim README.md; popd'
 alias eupd='sudo emaint --auto sync'
 alias efet='sudo emerge -avuDNf @world'
 alias eupg='sudo emerge -avuDN @world'
+alias lock='swaylock -c "#555555"'
 
 # I want to get more suckless
 alias rg='grep -iRnP'
