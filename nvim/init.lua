@@ -29,7 +29,10 @@ require('lazy').setup({
   {'williamboman/mason.nvim'},
   {'williamboman/mason-lspconfig.nvim'},
   {'hrsh7th/nvim-cmp'},
-  {'hrsh7th/cmp-nvim-lsp'}
+  {'hrsh7th/cmp-nvim-lsp'},
+
+  -- themes
+  {'RostislavArts/naysayer.nvim'}
 }, {})
 
 -- general
@@ -93,6 +96,7 @@ vim.api.nvim_create_user_command(
 
 -- color scheme
 vim.cmd.colorscheme("koehler")
+-- vim.cmd.colorscheme("naysayer")
 
 -- See: https://github.com/basecamp/omakub/issues/64
 -- transparent background
