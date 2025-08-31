@@ -26,7 +26,7 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/code/dot/wp/debian.jpg fill
+output * bg ~/code/dot/wp/gentoo.png fill
 #
 # Example configuration:
 #
@@ -212,7 +212,7 @@ bindsym $mod+r mode "resize"
 bar {
     position top
 
-    status_command while ~/.config/sway/status_bar.sh; do sleep 5; done
+    status_command while ~/.config/sway/status_bar; do sleep 5; done
     #status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
     colors {
@@ -225,4 +225,9 @@ bar {
 
 include /etc/sway/config.d/*
 
+output LVDS-1 scale 1
+
 default_border pixel 3
+
+exec gentoo-pipewire-launcher restart &
+exec gammastep -l 51.5:9.9 &
