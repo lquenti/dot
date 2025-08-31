@@ -31,6 +31,7 @@ alias work='pushd ~/work; nvim README.md; popd'
 alias sshdaemon='ssh cloud@141.5.108.64'
 
 alias yt-mp4='yt-dlp --restrict-filenames -f "bestvideo[ext=mp4][height<=1080]"'
+alias yt-1080='yt-dlp --restrict-filenames -f "bestvideo[height=1080]+bestaudio/best[height=1080]"'
 alias cloc='cloc --vcs git'
 
 alias calc='python3 -i ~/code/dot/calc.py'
