@@ -116,9 +116,8 @@ function setup_bh() {
 alias bh=setup_bh
 
 declare -A install_dates
-install_dates["zenblech"]="2025-04-23"
+install_dates["privb"]="2025-09-22"
 install_dates["workblech"]="2025-04-22"
-install_dates["t420b2"]="2025-06-22" # W7 23.06. allegedly
 current_weekday=$(date +%u) # do not run on thu
 if [[ "$current_weekday" -ne 4 ]] && [[ -n "${install_dates[$(hostname)]}" ]]; then
   install_date="${install_dates[$(hostname)]}"
@@ -142,7 +141,7 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 export PATH=$PATH:/usr/local/go/bin
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
