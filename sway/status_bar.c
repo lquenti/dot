@@ -8,7 +8,7 @@
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
 // sway doesn't get my $PATH
-#define PATH_TO_TIMEW "~/.local/bin/timew"
+#define PATH_TO_TIMEW "/usr/bin/timew"
 
 int exec_cmd(char *buf, size_t n, const char *cmd);
 int read_file(char *buf, size_t n, const char *path);
